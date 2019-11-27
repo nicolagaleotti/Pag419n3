@@ -24,5 +24,34 @@ namespace Esercizio3
         {
             InitializeComponent();
         }
-    }
+
+        private void btnCalcola_Click(object sender, RoutedEventArgs e)
+        {
+            double importo = double.Parse(txtImporto.Text);
+            double sconto = double.Parse(txtSconto.Text);
+            double impSconto;
+            if (sconto == 0)
+            {
+                impSconto = sconto;
+            }
+            else
+            {
+                impSconto = importo / 100 * sconto;
+            }
+            lblSconto.Content = impSconto.ToString();
+            double IVA = double.Parse(txtIVA.Text);
+            double impIVA;
+            if (IVA == 0)
+            {
+                impIVA = sconto;
+            }
+            else
+            {
+                impIVA = importo / 100 * IVA;
+            }
+            lblIVA.Content = impIVA.ToString();
+            double lordo = importo - impSconto + impIVA;
+            txtLordo.Text = lordo.ToString();
+        }
+    }   
 }
